@@ -1,0 +1,17 @@
+# Minimal Makefile for incremental build (no clean in all)
+all: app
+	@echo Build complete
+
+app: main.o lib.o util.o
+	g++ -mconsole -o app main.o lib.o util.o
+
+main.o: main.cpp common.h
+	g++ -c main.cpp -o main.o
+
+lib.o: lib.cpp common.h
+	g++ -c lib.cpp -o lib.o
+
+util.o: util.cpp common.h
+	g++ -c util.cpp -o util.o
+
+
